@@ -1,0 +1,67 @@
+.dropdown {
+  $active-color: #d2d2d2;
+  $bg-color: rgb(255 255 255 / 90%);
+  $border-color: #000;
+
+  position: relative;
+
+  &__input-area {
+    position: relative;
+    display: flex;
+
+    &::after {
+      content: "\25BC";
+      position: absolute;
+      right: 2px;
+      top: 10%;
+    }
+  }
+
+  &__input-field {
+    flex: 1 1 auto;
+    padding-right: 15px;
+  }
+
+  &__list {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    display: none;
+    list-style-type: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    border: 1px solid $border-color;
+    border-top: none;
+    padding: 0;
+    width: 100%;
+    max-height: 500%;
+    box-sizing: border-box;
+    background: $bg-color;
+
+    &#{&}--show {
+      display: block;
+    }
+
+    &#{&}--show-up {
+      display: block;
+    }
+  }
+
+  &__list-item {
+    cursor: pointer;
+
+    &#{&}--hide {
+      display: none;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 3px;
+    }
+
+    &:hover {
+      background-color: #d2d2d2;
+    }
+  }
+}
