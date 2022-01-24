@@ -1,7 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .container {
-  max-width: 500px;
-  padding: 10px;
+  min-height: 100px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
   border: 2px solid red;
+  padding: 10px;
+  max-width: 500px;
+  box-sizing: border-box;
+}
+
+.col-reverse {
+  flex-direction: column-reverse;
+}
+
+.compress {
+  min-height: 0;
+  flex-shrink: 10;
 }
 
 /*# sourceMappingURL=style.css.map */

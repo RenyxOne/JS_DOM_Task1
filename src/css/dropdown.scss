@@ -25,15 +25,13 @@
   &__list {
     position: absolute;
     left: 0;
-    top: 100%;
-    z-index: 1;
+    z-index: 2;
     display: none;
     list-style-type: none;
     overflow-x: hidden;
     overflow-y: auto;
     margin: 0;
     border: 1px solid $border-color;
-    border-top: none;
     padding: 0;
     width: 100%;
     max-height: 500%;
@@ -41,11 +39,15 @@
     background: $bg-color;
 
     &#{&}--show {
+      top: 100%;
       display: block;
+      border-top: none;
     }
 
     &#{&}--show-up {
+      bottom: 100%;
       display: block;
+      border-bottom: none;
     }
   }
 
