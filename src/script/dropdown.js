@@ -72,7 +72,7 @@ function Dropdown (element, initArr) {
   /* INITIAL */
   element.classList.add('dropdown');
 
-  var inputArea = document.createElement('label');
+  var inputArea = document.createElement('div');
 
   inputArea.className = 'dropdown__input-area';
 
@@ -88,8 +88,6 @@ function Dropdown (element, initArr) {
   inputField.addEventListener('input', search);
 
   inputArea.addEventListener('click',function (event) {
-    event.preventDefault();
-    event.stopPropagation();
     element.querySelector('.dropdown__list').classList.contains('dropdown__list--show') ||
     element.querySelector('.dropdown__list').classList.contains('dropdown__list--show-up')
       ? hideList() : showList()
@@ -97,9 +95,23 @@ function Dropdown (element, initArr) {
 
   element.appendChild(inputArea);
 
-  window.addEventListener('click', hideList);
-  window.addEventListener('resize', hideList);
-  window.addEventListener('scroll', hideList);
+  function outsideClick(event) {
+      if (!element.contains(event.target)){
+        hideList();
+      }
+  }
+
+  function outsideEventAdd(){
+    window.addEventListener('click', outsideClick);
+    window.addEventListener('resize', hideList);
+    window.addEventListener('scroll', hideList);
+  }
+
+  function outsideEventRemove(){
+    window.removeEventListener('click', outsideClick);
+    window.addEventListener('resize', hideList);
+    window.addEventListener('scroll', hideList);
+  }
 
   if (initArr) {
     setElements(initArr);
@@ -141,6 +153,7 @@ function Dropdown (element, initArr) {
       listItems[i].classList.remove('dropdown__list-item--hide');
     }
 
+    outsideEventAdd();
   }
 
   function hideList () {
@@ -152,6 +165,7 @@ function Dropdown (element, initArr) {
     var list = element.querySelector('.dropdown__list');
     list.classList.remove('dropdown__list--show');
     list.classList.remove('dropdown__list--show-up');
+    outsideEventRemove();
   }
 
   function clearList() {
