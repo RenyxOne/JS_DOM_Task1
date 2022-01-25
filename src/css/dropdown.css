@@ -13,8 +13,8 @@
   top: 10%;
 }
 .dropdown__input-field {
-  flex: 1 1 auto;
   padding-right: 15px;
+  width: 100%;
 }
 .dropdown__list {
   position: absolute;
