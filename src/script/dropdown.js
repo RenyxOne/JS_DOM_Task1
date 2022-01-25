@@ -72,7 +72,7 @@ function Dropdown (element, initArr) {
   /* INITIAL */
   element.classList.add('dropdown');
 
-  var inputArea = document.createElement('label');
+  var inputArea = document.createElement('div');
 
   inputArea.className = 'dropdown__input-area';
 
@@ -91,7 +91,6 @@ function Dropdown (element, initArr) {
     element.querySelector('.dropdown__list').classList.contains('dropdown__list--show') ||
     element.querySelector('.dropdown__list').classList.contains('dropdown__list--show-up')
       ? hideList() : showList()
-    console.log('test');
   });
 
   element.appendChild(inputArea);
