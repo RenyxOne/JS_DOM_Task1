@@ -1,10 +1,12 @@
 @charset "UTF-8";
 .dropdown {
   position: relative;
+  width: 100%;
+  box-sizing: border-box;
 }
 .dropdown__input-area {
   position: relative;
-  display: flex;
+  width: 100%;
 }
 .dropdown__input-area::after {
   content: "▼";
@@ -13,6 +15,7 @@
   top: 10%;
 }
 .dropdown__input-field {
+  box-sizing: border-box;
   padding-right: 15px;
   width: 100%;
 }
